@@ -41,7 +41,7 @@ class MRUCache(BaseCaching):
         if key is None:
             return
 
-        if value is self.cache_data:
+        if key is self.cache_data:
             self.current = key
             return self.cache_data[key]
 
