@@ -6,7 +6,7 @@ Basic dictionary
 BaseCaching = __import__('base_caching').BaseCaching
 
 
-class FIFOCache(BaseCaching):
+class LIFOCache(BaseCaching):
     """
     Basic Dictionary
     """
