@@ -22,9 +22,6 @@ class FIFOCache(BaseCaching):
         if key is None or items is None:
             return
 
-        if key in self.cache_data:
-            self.order.remove(key)
-
         if len(self.cache_data) == BaseCaching.MAX_ITEMS:
             first_key = next(iter(self.cache_data))
             self.cache_data.pop[first_key]
