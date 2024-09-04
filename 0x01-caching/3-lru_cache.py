@@ -14,6 +14,7 @@ class LRUCache(BaseCaching):
     def __init__(self):
         """INIT"""
         super().__init__()
+        self.current = []
 
     def put(self, key, items):
         """
@@ -22,7 +23,7 @@ class LRUCache(BaseCaching):
         if key is None or items is None:
             return
 
-        if key in self.cache:
+        if key in self.cache_data:
             self.current.remove.(key)
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
