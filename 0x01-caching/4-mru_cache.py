@@ -25,11 +25,13 @@ class MRUCache(BaseCaching):
 
         if key in self.cache_data:
             self.cache_data[key] = items
+            self.current = key
             return
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            self.cache_data.pop(self.current)
-            print(f"DISCARD: {self.current}")
+            if self.current is not None:
+                self.cache_data.pop(self.current)
+                print(f"DISCARD: {self.current}")
 
         self.current = key
         self.cache_data[key] = items
