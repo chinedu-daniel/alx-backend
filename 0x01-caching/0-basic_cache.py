@@ -19,7 +19,7 @@ class BasicCache(BaseCaching):
         """
         check if the key and item are none or not
         """
-        if key is None and items is None:
+        if key is None or items is None:
             return
         self.cache_data[key] = items
 
