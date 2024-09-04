@@ -24,12 +24,12 @@ class LRUCache(BaseCaching):
             return
 
         if key in self.cache_data:
-            self.current.remove.(key)
+            self.current.remove(key)
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
-            item = self.current.pop()
-            self.cache_data.pop(item)
-            print(f"DISCARD: {item}")
+            lru = self.current.pop()
+            self.cache_data.pop(lru)
+            print(f"DISCARD: {lru}")
 
         self.current.insert(0, key)
         self.cache_data[key] = items
