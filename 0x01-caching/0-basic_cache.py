@@ -15,13 +15,13 @@ class BasicCache(BaseCaching):
         """INIT"""
         super().__init__()
 
-    def put(self, key, item):
+    def put(self, key, items):
         """
         check if the key and item are none or not
         """
-        if key is None and item is None:
+        if key is None and items is None:
             return
-        self.cache_data[key] = item
+        self.cache_data[key] = items
 
     def get(self, key):
         """
