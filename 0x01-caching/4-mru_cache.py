@@ -14,7 +14,7 @@ class MRUCache(BaseCaching):
     def __init__(self):
         """INIT"""
         super().__init__()
-        self.current = []
+        self.current = None
 
     def put(self, key, items):
         """
