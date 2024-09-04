@@ -25,6 +25,7 @@ class MRUCache(BaseCaching):
 
         if key in self.cache_data:
             self.cache_data[key] = items
+            return
 
         if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
             self.cache_data.pop(self.current)
