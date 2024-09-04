@@ -41,7 +41,9 @@ class LRUCache(BaseCaching):
         if key is None:
             return
         value = self.cache_data.get(key, None)
-        if value is None:
-            return
+
+        if value is not None:
+            self.current.remove(key)
+            self.current.insert(0, key)
 
         return value
