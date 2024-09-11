@@ -20,7 +20,10 @@ class Config:
 
 app.config.from_object(Config)
 
-@app.route('/')
+@app.route('/', methods=["GET"])
+def home():
+    """home route serving the default page"""
+    return render_template("0-index.html",)
 
 
 if __name__ == "__main__":
