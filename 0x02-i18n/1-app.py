@@ -6,7 +6,7 @@ from flask import Flask, g, request
 from flask_babel import Babel
 
 app = Flask(__name__)
-app.config-from_pyfile('mysettings.cfg')
+
 babel = Babel(app)
 
 
@@ -15,21 +15,13 @@ class Config:
     creating a locale
     """
     LANGUAGES = ['en', 'fr']
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
-    @babel.localeselector
-    def get_locale():
-        """
-        making 'en' a default locale
-        """
-        if user is not None:
-            return user.locale
-        return request.accept_languaes.best_match(['en'])
+app.config.from_object(Config)
 
-    @babel.timezoneselector
-    def get_timezone():
-        """
-        UTC default timezone
-        """
-        user = getattr(g, 'user', None)
-        if user is not None:
-            return user.timezone
+@app.route('/')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
