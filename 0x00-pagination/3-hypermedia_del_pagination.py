@@ -16,7 +16,7 @@ class Server:
 
     def __init__(self):
         self.__dataset = None
-        self.__indexed_dataset = None
+        self.__indexed = None
 
     def dataset(self) -> List[List]:
         """Cached dataset"""
@@ -29,12 +29,11 @@ class Server:
 
     def indexed_dataset(self) -> Dict[int, List]:
         """Dataset indexed by sorting position, starting at 0"""
-        if self.__indexed_dataset is None:
+        if self.__indexed is None:
             dataset = self.dataset()
             truncated_dataset = dataset[:1000]
-            self.__indexed_dataset = {i: dataset[i]
-                    for i in range(len(truncated_dataset))}
-        return self.__indexed_dataset
+            self.__indexed = {i: dataset[i] for i in range(len(truncated_dataset))}
+        return self.__indexed
 
     def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
